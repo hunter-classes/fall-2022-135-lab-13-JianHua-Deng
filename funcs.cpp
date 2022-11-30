@@ -17,10 +17,11 @@ int sumRange(int left, int right){
 }//end sumRange function
 
 int sumArray(int *arr, int size){
-    if(size > 0){
-        return *(arr + size - 1) + sumArray(arr, size - 1);
+    int index = size - 1;
+    if(index > 0){
+        return *(arr + index) + sumArray(arr, size - 1);
     }else{
-        return -1; //returning -1 becausing it would reach 0 as I am doing size - 1, so this is a base case, which shouldn't be executed
+        return *(arr + index);//base condition
     }//end else condition
 }//end sumArray function
 
@@ -36,6 +37,6 @@ bool nestedParens(std::string s){
     if(s.length() > 0){
         return (s[0] == '(' && s[s.length() - 1] == ')') && nestedParens(s.substr(1, s.length() - 2));
     }else{
-        return true;
+        return true;//base condition
     }//end else condition
 }//end nestedParens function
